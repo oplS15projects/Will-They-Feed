@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html style="overflow: default;">
+  <head>
+    <title> @title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/vendor/animate/animate.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/js/vendor/videobackground/css/jquery.videobackground.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap-checkbox.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
+
+    <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen.min.css">
+    <link rel="stylesheet" href="assets/js/vendor/chosen/css/chosen-bootstrap.css">
+
+    <link href="assets/css/minimal.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <style type="text/css">
+    html { overflow: auto !important; }
+    body { background-attachment: fixed; }
+  </style>
+
+  <body class="bg-6">
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <!-- Make page fluid -->
+      <div class="row">
+        <!-- Page content -->
+
+            <!-- Summoner Name Entry Segment -->
+            <div id="content" class="col-md-12 full-page login">
+                <div class="inside-block">
+                    <img src="assets/images/logo-big.png" alt class="logo">
+                    <h1><strong>Welcome</strong> Stranger</h1>
+                    <h5>Please enter your summoner name...</h5>
+
+                    <form id="form-signin" class="form-signin">
+                        <section>
+                            <div class="input-group">
+                                <input type="text" id="summoner" class="form-control" name="summoner_name" placeholder="Summoner Name" value="@summoner_name" autocomplete="off">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default disabled" id="continue_button">Go!</button>
+                                </span>
+                            </div>
+                                <span class="help-block" id="summoner_availability_result"></span>
+                        </section>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /Page content -->
+      </div>
+    </div>
+    <!-- Wrap all page content end -->
+
+    <section class="videocontent" id="video">
+        <div class="video-background video-bg-8" style="height: 955px;">
+            <video preload="auto" autoplay="autoplay" loop="loop">
+                <source src="assets/videobg/8.mp4" type="video/mp4">
+                <source src="assets/videobg/8.webm" type="video/webm">
+                <source src="assets/videobg/8.ogv" type="video/ogg">
+            </video>
+        </div>
+        <div class="ui-video-background ui-widget ui-widget-content ui-corner-all">
+            <ul class="ui-video-background-controls">
+                <li class="ui-video-background-play"><a class="ui-icon ui-icon-pause" href="#">undefined</a></li>
+                <li class="ui-video-background-mute"><a class="ui-icon ui-icon-volume-off" href="#">undefined</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/bootstrap/bootstrap-dropdown-multilevel.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/blockui/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="assets/js/vendor/videobackground/jquery.videobackground.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/vendor/chosen/chosen.jquery.min.js"></script>
+    <script src="assets/js/vendor/parsley/parsley.min.js"></script>
+
+    <script> $(function() { $(".chosen-select").chosen({disable_search_threshold: 10}); }) </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var timer;
+            var min_chars = 3;
+            var max_chars = 16;
+
+            //result texts
+            var characters_error = 'Minimum amount of characters is 3';
+            var max_chars_error = 'Maximum amount of characters is 16'
+            var checking_html = 'Checking...';
+
+            // Do availability check on load if form is populated
+            if ($('#summoner').val().length > 0) { check_availability(); }
+
+            $('#summoner').keypress(function (e) {
+                var regex = new RegExp("^[a-zA-Z0-9\\-\\s]+$");
+                var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+                if (regex.test(str)) {
+                    return true;
+                }
+
+                e.preventDefault();
+                return false;
+            });
+
+            //when button is clicked
+            $('#summoner').keyup(function() {
+                clearTimeout(timer);
+                var ms = 1000; // milliseconds
+
+                $('#summoner_availability_result').html('Checking...');
+
+                timer = setTimeout(function() {
+                    if ($('#summoner').val().length < min_chars) {
+                        $('#summoner_availability_result').html(characters_error);
+                    } else if ($('#summoner').val().length > max_chars) {
+                        $('#summoner_availability_result').html(max_chars_error);
+                    } else {
+                        $('#summoner_availability_result').html(checking_html);
+                    }
+                }, ms);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.form-signin').submit(function(e) {
+                e.preventDefault();
+                var sum_name = $('#summoner').val();
+                $('.login').fadeOut('slow');
+                $('.videocontent').fadeOut('slow');
+
+                $('.main-page-content').delay(1000).fadeIn('slow');
+                $('#summoner_name').val(sum_name);
+            });
+
+            $('#return_button').click(function(e) {
+                e.preventDefault();
+                $('.videocontent').fadeIn('slow');
+                $('.main-page-content').fadeOut('slow');
+                $('.login').delay(1000).fadeIn('slow');
+            });
+        });
+    </script>
+  </body>
+</html>
