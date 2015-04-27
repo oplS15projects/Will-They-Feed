@@ -78,5 +78,5 @@ We had a lot of fun with this project because we got to do something we were int
 #How to Download and Run
 Open the Racket file in DrRacket, run the file. Enter a summoner name in the box, then the necessary data will be retrieved and displayed on a web page for your viewing pleasure.
 
-Latest Release: https://github.com/oplS15projects/Will-They-Feed
+Latest Release: https://github.com/oplS15projects/Will-They-Feed/blob/master/riot-index.rkt
 
