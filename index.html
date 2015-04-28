@@ -4,23 +4,23 @@
     <title> @title </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
- 
+
     <link rel="icon" type="image/ico" href="http://dropshock.net/admin/assets/images/favicon.ico" />
- 
+
     <!-- Bootstrap -->
     <link href="http://dropshock.net/admin/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://dropshock.net/admin/assets/css/vendor/animate/animate.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
- 
+
     <link rel="stylesheet" href="http://dropshock.net/admin/assets/js/vendor/videobackground/css/jquery.videobackground.css">
     <link rel="stylesheet" href="http://dropshock.net/admin/assets/css/vendor/bootstrap-checkbox.css">
     <link rel="stylesheet" href="http://dropshock.net/admin/assets/css/vendor/bootstrap/bootstrap-dropdown-multilevel.css">
- 
+
     <link rel="stylesheet" href="http://dropshock.net/admin/assets/js/vendor/chosen/css/chosen.min.css">
     <link rel="stylesheet" href="http://dropshock.net/admin/assets/js/vendor/chosen/css/chosen-bootstrap.css">
- 
+
     <link href="http://dropshock.net/admin/assets/css/minimal.css" rel="stylesheet">
- 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,22 +32,22 @@
     html { overflow: auto !important; }
     body { background-attachment: fixed; }
   </style>
- 
+
   <body class="bg-6">
- 
+
     <!-- Wrap all page content here -->
     <div id="wrap">
       <!-- Make page fluid -->
       <div class="row">
         <!-- Page content -->
- 
+
             <!-- Summoner Name Entry Segment -->
             <div id="content" class="col-md-12 full-page login" style="display: none;">
                 <div class="inside-block">
                     <img src="http://dropshock.net/admin/assets/images/logo-big.png" alt class="logo">
                     <h1><strong>Welcome</strong> Stranger</h1>
                     <h5>Please enter your summoner name...</h5>
- 
+
                     <form id="form-signin" class="form-signin">
                         <section>
                             <div class="input-group">
@@ -61,8 +61,8 @@
                     </form>
                 </div>
             </div>
- 
- 
+
+
             <div class="col-md-8 col-md-offset-2">
                 <!-- tile -->
                 <section class="tile transparent">
@@ -73,13 +73,12 @@
                             <p>Summoner Level</p>
                         </div>
                         <div class="container text-center col-md-6">
-                            <h1>@|soloqpoints|!</h1>
-                            <p>This user is a very average feeder.</p>
+                            <h2>@|feederscore|</h2>
                         </div>
                     </div>
                 </section>
             </div>
- 
+
             <style type="text/css">
                 .solo-queue-stats li {
                     background-color: rgba(0, 0, 0, 0.15);
@@ -87,14 +86,14 @@
                     color: #FFF;
                 }
             </style>
- 
+
             <div class="col-md-3 col-md-offset-2 panel panel-transparent-black">
                 <div class="panel-heading">
                     <h3 class="panel-title">Solo Queue: @tier @division </h3>
                 </div>
                 <div class="panel-body">
                     The following are statistics regarding the players Solo-Queue performance. These carry rather significant value.
- 
+
                     <div class="progress-list" style="margin-top: 15px;">
                         <div class="details">
                             <div class="title"><strong>Win</strong> / Loss</div>
@@ -111,12 +110,12 @@
                     </div>
                 </div>
                 <ul class="list-group solo-queue-stats">
-                    <li class="list-group-item"><span class="badge badge-warning"> @soloqwins </span> Wins</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @soloqlosses </span> Losses</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @soloqpoints </span> League Points</li>
+                    <li class="list-group-item"><span class="badge badge-success"> @soloqwins </span> Wins</li>
+                    <li class="list-group-item"><span class="badge badge-danger"> @soloqlosses </span> Losses</li>
+                    <li class="list-group-item"><span class="badge badge-info"> @soloqpoints </span> League Points</li>
                 </ul>
             </div>
- 
+
             <div class="col-md-5 panel panel-transparent-black">
                 <div class="panel-heading">
                     <h3 class="panel-title">Ranked Totals</h3>
@@ -126,20 +125,21 @@
                 </div>
                 <ul class="list-group solo-queue-stats">
                     <li class="list-group-item"><span class="badge badge-warning"> @rankedgames </span> Ranked Played</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @rankedwins </span> Ranked Won</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @rankedlosses </span> Ranked Lost</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @kills </span> Ranked Kills</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @deaths </span> Ranked Deaths</li>
-                    <li class="list-group-item"><span class="badge badge-warning"> @assists </span> Ranked Assists</li>
+                    <li class="list-group-item"><span class="badge badge-success"> @rankedwins </span> Ranked Won</li>
+                    <li class="list-group-item"><span class="badge badge-success"> @kills </span> Ranked Kills</li>
+                    <li class="list-group-item"><span class="badge badge-greensea"> @assists </span> Ranked Assists</li>
+                    <li class="list-group-item"><span class="badge badge-danger"> @rankedlosses </span> Ranked Lost</li>
+                    <li class="list-group-item"><span class="badge badge-danger"> @deaths </span> Ranked Deaths</li>
+
                 </ul>
             </div>
- 
+
         </div>
         <!-- /Page content -->
       </div>
     </div>
     <!-- Wrap all page content end -->
- 
+
     <section class="videocontent" id="video">
         <div class="video-background video-bg-8" style="height: 955px;">
             <video preload="auto" autoplay="autoplay" loop="loop">
@@ -155,7 +155,7 @@
             </ul>
         </div>
     </section>
- 
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="http://dropshock.net/admin/assets/js/vendor/bootstrap/bootstrap.min.js"></script>
@@ -163,45 +163,45 @@
     <script type="text/javascript" src="http://dropshock.net/admin/assets/js/vendor/nicescroll/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="http://dropshock.net/admin/assets/js/vendor/blockui/jquery.blockUI.js"></script>
     <script type="text/javascript" src="http://dropshock.net/admin/assets/js/vendor/videobackground/jquery.videobackground.js"></script>
- 
+
     <!-- Plugins -->
     <script src="http://dropshock.net/admin/assets/js/vendor/chosen/chosen.jquery.min.js"></script>
     <script src="http://dropshock.net/admin/assets/js/vendor/parsley/parsley.min.js"></script>
- 
+
     <script> $(function() { $(".chosen-select").chosen({disable_search_threshold: 10}); }) </script>
- 
+
     <script type="text/javascript">
         $(document).ready(function() {
             var timer;
             var min_chars = 3;
             var max_chars = 16;
- 
+
             //result texts
             var characters_error = 'Minimum amount of characters is 3';
             var max_chars_error = 'Maximum amount of characters is 16'
             var checking_html = 'Checking...';
- 
+
             // Do availability check on load if form is populated
             if ($('#summoner').val().length > 0) { check_availability(); }
- 
+
             $('#summoner').keypress(function (e) {
                 var regex = new RegExp("^[a-zA-Z0-9\\-\\s]+$");
                 var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
                 if (regex.test(str)) {
                     return true;
                 }
- 
+
                 e.preventDefault();
                 return false;
             });
- 
+
             //when button is clicked
             $('#summoner').keyup(function() {
                 clearTimeout(timer);
                 var ms = 1000; // milliseconds
- 
+
                 $('#summoner_availability_result').html('Checking...');
- 
+
                 timer = setTimeout(function() {
                     if ($('#summoner').val().length < min_chars) {
                         $('#summoner_availability_result').html(characters_error);
@@ -214,7 +214,7 @@
             });
         });
     </script>
- 
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('.form-signin').submit(function(e) {
@@ -222,11 +222,11 @@
                 var sum_name = $('#summoner').val();
                 $('.login').fadeOut('slow');
                 $('.videocontent').fadeOut('slow');
- 
+
                 $('.main-page-content').delay(1000).fadeIn('slow');
                 $('#summoner_name').val(sum_name);
             });
- 
+
             $('#return_button').click(function(e) {
                 e.preventDefault();
                 $('.videocontent').fadeIn('slow');
