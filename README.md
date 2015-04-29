@@ -1,5 +1,3 @@
-# FP7 - Will They Feed
-
 ##Authors
 * Nick Lombardi
 * Joshua Semedo
